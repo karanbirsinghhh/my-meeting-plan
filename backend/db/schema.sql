@@ -1,7 +1,6 @@
--- Calendly Clone Database Schema (MySQL)
+-- My Meeting Plan Database Schema (MySQL)
+-- Tables are created in the database specified by DB_NAME env var
 
-CREATE DATABASE IF NOT EXISTS calendly_clone;
-USE calendly_clone;
 
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,

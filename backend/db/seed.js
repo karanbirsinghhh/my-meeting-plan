@@ -9,8 +9,10 @@ async function seed() {
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
+    database: process.env.DB_NAME || 'calendly_clone',
     port: process.env.DB_PORT || 3306,
-    multipleStatements: true
+    multipleStatements: true,
+    ...(process.env.DB_SSL === 'true' ? { ssl: { rejectUnauthorized: false } } : {})
   });
 
   const schema = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
@@ -25,6 +27,7 @@ async function seed() {
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'calendly_clone',
     port: process.env.DB_PORT || 3306,
+    ...(process.env.DB_SSL === 'true' ? { ssl: { rejectUnauthorized: false } } : {})
   });
 
   await db.query('SET FOREIGN_KEY_CHECKS = 0');
