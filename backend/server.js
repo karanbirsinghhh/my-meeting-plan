@@ -39,6 +39,6 @@ app.use('/api/meetings', meetingsRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
 
-app.listen(PORT, '0.0.0.0' => {
+app.listen(PORT, 0.0.0.0 => {
   console.log(`\n🚀 Calendly Clone API running on http://localhost:${PORT}\n`);
 });
